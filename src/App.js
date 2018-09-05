@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import TextArea from "./TextArea.js";
 import List from "./List.js";
+import SaveButton from "./SaveButton.js";
 import "./App.css";
 
 export const getLength = item => {
@@ -67,7 +68,7 @@ export default class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <main className="App">
         <TextArea
           version={this.state.version}
           handleSubmit={this.handleSubmit}
@@ -76,9 +77,12 @@ export default class App extends Component {
           wordCount={this.state.wordCount}
         />
         {this.state.lines.length > 0 && (
-          <List list={this.state.lines} onClick={this.removeItem} />
+          <section className="Results">
+            <List list={this.state.lines} onClick={this.removeItem} />
+            <SaveButton lines={this.state.lines} />
+          </section>
         )}
-      </div>
+      </main>
     );
   }
 }

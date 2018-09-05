@@ -8,8 +8,14 @@ export default class List extends Component {
       return (
         <li key={index}>
           <a href="#0" key={index} onClick={this.props.onClick}>
-            {item} {getLength(item)}
+            {item}
           </a>
+          <ul>
+            <li>
+              <strong>Word Count: </strong>
+              {getLength(item)}
+            </li>
+          </ul>
         </li>
       );
     });
