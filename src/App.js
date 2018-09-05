@@ -17,7 +17,7 @@ export default class App extends Component {
   constructor() {
     super();
     this.state = {
-      version: "1.0.0",
+      version: "1.0.1",
       lines: [],
       text: "",
       wordCount: 0
