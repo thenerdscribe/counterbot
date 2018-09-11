@@ -15,6 +15,10 @@ export default class List extends Component {
               <strong>Word Count: </strong>
               {getLength(item)}
             </li>
+            <li>
+              <strong>Character Count: </strong>
+              {item.length}
+            </li>
           </ul>
         </li>
       );
