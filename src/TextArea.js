@@ -7,6 +7,7 @@ export default class TextArea extends Component {
       <div className="Inner">
         <h1>CounterBot {this.props.version}</h1>
         <h3>Word Count: {this.props.wordCount}</h3>
+        <h3>Character Count: {this.props.characterCount}</h3>
         <form onSubmit={this.props.handleSubmit}>
           <input
             type="text"

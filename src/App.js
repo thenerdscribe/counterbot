@@ -20,7 +20,8 @@ export default class App extends Component {
       version: "1.0.1",
       lines: [],
       text: "",
-      wordCount: 0
+      wordCount: 0,
+      characterCount: 0
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -41,16 +42,23 @@ export default class App extends Component {
     const text = event.target.text.value;
     if (text) {
       const joined = this.state.lines.concat(text);
-      this.setState({ lines: joined, text: "", wordCount: 0 });
+      this.setState({
+        lines: joined,
+        text: "",
+        wordCount: 0,
+        characterCount: 0
+      });
       localStorage.setItem("lines", JSON.stringify(joined));
     }
   }
 
   handleChange(event) {
     const wordCount = getLength(event.target.value);
+    const characterCount = event.target.value.length;
     this.setState({
       text: event.target.value,
-      wordCount: wordCount
+      wordCount: wordCount,
+      characterCount: characterCount
     });
   }
 
@@ -75,6 +83,7 @@ export default class App extends Component {
           handleChange={this.handleChange}
           value={this.state.text}
           wordCount={this.state.wordCount}
+          characterCount={this.state.characterCount}
         />
         {this.state.lines.length > 0 && (
           <section className="Results">
