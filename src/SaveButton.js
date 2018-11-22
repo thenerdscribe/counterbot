@@ -1,9 +1,9 @@
-import React, { Component } from "react";
+import React from "react";
 import { saveAs } from "file-saver/FileSaver";
 import "./TextArea.css";
 
 const SaveButton = props => {
-  handleSave = () => {
+  const handleSave = () => {
     var blob = new Blob([this.props.lines.join("\n")], {
       type: "text/plain;charset=utf-8"
     });
@@ -14,7 +14,7 @@ const SaveButton = props => {
     <React.Fragment>
       <button
         onClick={() => {
-          this.handleSave();
+          handleSave();
         }}
       >
         Save
